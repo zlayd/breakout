@@ -13,5 +13,6 @@ how to play:
   - press 'f' to toggle fullscreen.
 
 this program is licensed under the GNU LGPLv3.
-there should be two files called "COPYING" and "COPYING.LESSER" that explain the terms of the license.
-if these files are not present, they can be found at <https://www.gnu.org/licenses/>.
+there should be two files called "COPYING" and "COPYING.LESSER" include with this program
+that explain the terms of the license. if these files are not present, the terms of the
+license can instead be found at <https://www.gnu.org/licenses/>.
