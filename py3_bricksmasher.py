@@ -130,6 +130,24 @@ def main():
   msg_time=255
   win_old_surf = 0 # will store fade-out image
 
+  def brick_col() -> bool:
+    nonlocal brick_rect, rows, row_offset, brick_array, bounce, update_score, brick_count
+    brick_rect.y=54
+    for i in range(0,rows): # rows
+      brick_rect.x=6+(row_offset*((i%2)*2-1))
+      for j in range(0,12): # cols
+        if brick_array[i][j]:
+          if brick_rect.colliderect(ball_rect_col): # if collision
+            bounce.play()
+            # remove brick
+            update_score = True
+            brick_count-=1
+            brick_array[i][j]=False
+            return True
+        brick_rect.x+=brick_rect.w+6
+      brick_rect.y+=brick_rect.h+6
+    return False
+
   # --- main loop ---
   play = True
   while(play):
@@ -210,26 +228,14 @@ def main():
       # --- x-axis ---
       ball_rect_col.x += ball_speed_x
       # brick collision detection
-      brick_rect.y=54
-      for i in range(0,rows): # rows
-        brick_rect.x=6+(row_offset*((i%2)*2-1))
-        for j in range(0,12): # cols
-          if brick_array[i][j]:
-            if brick_rect.colliderect(ball_rect_col): # if collision
-              bounce.play()
-              # remove brick
-              update_score = True
-              brick_count-=1
-              brick_array[i][j]=False
-              # move ball to side
-              ball_rect_col.x=brick_rect.x
-              if ball_speed_x < 0:
-                ball_rect_col.x+=brick_rect.w
-              else:
-                ball_rect_col.x-=ball_rect_col.w
-              ball_speed_x *= -1; # change ball direction
-          brick_rect.x+=brick_rect.w+6
-        brick_rect.y+=brick_rect.h+6
+      if brick_col():
+        # move ball to side
+        ball_rect_col.x=brick_rect.x
+        if ball_speed_x < 0:
+          ball_rect_col.x+=brick_rect.w
+        else:
+          ball_rect_col.x-=ball_rect_col.w
+        ball_speed_x *= -1; # change ball direction
       # screen border collision
       # left side
       if ball_rect_col.x < 0:
@@ -245,26 +251,14 @@ def main():
       # --- y-axis ---
       ball_rect_col.y += ball_speed_y
       # brick collision detection
-      brick_rect.y=54
-      for i in range(0,rows): # rows
-        brick_rect.x=6+(row_offset*((i%2)*2-1))
-        for j in range(0,12): # cols
-          if brick_array[i][j]: # if brick exists
-            if brick_rect.colliderect(ball_rect_col): # collision between brick and ball
-              bounce.play()
-              # remove brick
-              brick_count-=1
-              update_score = True
-              brick_array[i][j]=False
-              # update ball position
-              ball_rect_col.y=brick_rect.y
-              if ball_speed_y < 0: # moving left
-                ball_rect_col.y+=brick_rect.h
-              else: # moving right
-                ball_rect_col.y-=ball_rect_col.h
-              ball_speed_y *= -1 # change direction
-          brick_rect.x+=brick_rect.w+6
-        brick_rect.y+=brick_rect.h+6
+      if brick_col():
+        # update ball position
+        ball_rect_col.y=brick_rect.y
+        if ball_speed_y < 0:
+          ball_rect_col.y+=brick_rect.h
+        else:
+          ball_rect_col.y-=ball_rect_col.h
+        ball_speed_y *= -1 # change direction
 
       # paddle collision
       if paddle_rect[paddle_index].colliderect(ball_rect_col):
