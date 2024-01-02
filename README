@@ -12,7 +12,6 @@ how to play:
   - press 'q' or escape to quit.
   - press 'f' to toggle fullscreen.
 
-it's licensed under the GNU LGPLv3.
-there should be a file called "COPYING.LESSER" included with this program that contains the license,
-as well as a "COPYING" file that contains the GNU GPLv3 for the purpose of better understanding the
-Lesser GPL. if there files are not present, they can be found at <https://www.gnu.org/licenses/>.
+this program is licensed under the GNU LGPLv3.
+there should be two files called "COPYING" and "COPYING.LESSER" that explain the terms of the license.
+if these files are not present, they can be found at <https://www.gnu.org/licenses/>.
