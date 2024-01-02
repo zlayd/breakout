@@ -155,7 +155,7 @@ def main():
     win.blit(score_img, score_rect) # score counter
 
     win.blit(ball_img[ball_img_index], ball_rect_img) # draw ball
-    if ball_new and time%12 == 0: # rotate ball
+    if time%12 == 0: # rotate ball
       ball_img_index = (ball_img_index+1) % 4
 
     if msg_type>-1: # if should display a message
