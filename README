@@ -1,0 +1,14 @@
+created by x allegretta, 2023-2024.
+
+this is simply a clone of breakout, written for my final project in my honors python class.
+
+how to play:
+  - use the mouse to control the paddle position.
+  - click a mouse button to launch the ball
+  - press 'q' or escape to quit
+  - press 'f' to toggle fullscreen
+
+it's licensed under the GNU LGPLv3.
+there should be a file called "COPYING.LESSER" included with this program that contains the license,
+as well as a "COPYING" file that contains the GNU GPLv3 for the purpose of better understanding the
+Lesser GPL. if there files are not present, they can be found at <https://www.gnu.org/licenses/>.
