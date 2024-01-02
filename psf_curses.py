@@ -14,6 +14,10 @@ You should have received a copy of the GNU Lesser General Public License along w
 If not, see <https://www.gnu.org/licenses/>.
 """
 
+# this is not a necessary part of the program.
+# this is just a tool i made to edit psf1 files so i could make the font the game uses.
+# this can be used to edit other psf1 files as well, i guess.
+
 from psf import *
 import curses
 import sys
