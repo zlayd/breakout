@@ -202,7 +202,7 @@ def main():
             ball_new = False
             ball_speed_y = -2
             ball_speed_x = 2
-            if mouse_pos[0]<win_rect.w/2:
+            if mouse_pos[0]>win_rect.w/2:
               ball_speed_x*=-1
 
     # --- ball movement + collision ---
