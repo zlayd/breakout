@@ -1,6 +1,10 @@
 created by x allegretta, 2023-2024.
 
-this is simply a clone of breakout, written for my final project in my honors python class.
+this is simply a clone of breakout.
+
+required to run this:
+  python3.
+  pygame2 with support for SDL2_Mixer
 
 how to play:
   - use the mouse to control the paddle position.
