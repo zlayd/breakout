@@ -50,7 +50,7 @@ def main():
   win_img = []
   for i in range(1,7):
     win_img.append(pygame.image.load("bmps/background" + str(i) + ".bmp"))
-  pygame.display.set_caption("breakout clone")
+  pygame.display.set_caption("bricksmasher")
 
   bounce = pygame.mixer.Sound("wavs/my_ears.wav")
 
