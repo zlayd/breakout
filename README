@@ -8,9 +8,9 @@ required to run this:
 
 how to play:
   - use the mouse to control the paddle position.
-  - click a mouse button to launch the ball
-  - press 'q' or escape to quit
-  - press 'f' to toggle fullscreen
+  - click a mouse button to launch the ball.
+  - press 'q' or escape to quit.
+  - press 'f' to toggle fullscreen.
 
 it's licensed under the GNU LGPLv3.
 there should be a file called "COPYING.LESSER" included with this program that contains the license,
