@@ -92,7 +92,7 @@ def main():
   row_offset = 0
   row_offset_max = 0 # by how much the different rows will move back and forth
   row_offset_add = 0 # how much to change the offset by
-  brick_count = 1
+  brick_count = 24
   brick_array = [[], [], [], []] # holds rows
   for i in range(0,4):
     # fill row
