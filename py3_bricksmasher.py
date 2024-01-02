@@ -194,7 +194,7 @@ def main():
         elif paddle_rect[paddle_index].x>win_rect.w-paddle_rect[paddle_index].w:
           paddle_rect[paddle_index].x=win_rect.w-paddle_rect[paddle_index].w
         # keep a new ball stuck to paddle
-        if ball_new and level != 7:
+        if ball_new:
           ball_rect_img.x = paddle_rect[paddle_index].x + paddle_rect[paddle_index].w/2 - ball_rect_img.w/2
           ball_rect_col.x = paddle_rect[paddle_index].x + paddle_rect[paddle_index].w/2 - ball_rect_col.w/2
           # launch ball
