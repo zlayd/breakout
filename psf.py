@@ -200,5 +200,3 @@ class PSF:
       image = pygame.transform.scale(image, (int(len(text)*8*self.scale/self.height), self.scale))
 
     return image
-
-print(PSF().setScale(10))
