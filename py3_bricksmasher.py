@@ -348,7 +348,7 @@ def main():
             alpha = 255
             while ask_replay: # loop run until play makes decision
               win.fill((0, 0, 0)) # clear screen
-              for i in range(4):
+              for i in range(5):
                 win.blit(replay_info_img[i], replay_info_rect[i])
               if alpha > 0:
                 win.blit(win_old_surf, win_rect)
@@ -370,19 +370,18 @@ def main():
                     ask_replay=False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                   ask_replay=False
-            rows=1
+            rows=2
             lives+=3
             level=1
             win_old_surf = pygame.display.get_surface().copy()
             msg_type=2 # doesn't actually show a message, but makes it so that there's a fade
           else:
             msg_type=0 # you won a level message
-          msg_time=254
+          msg_time=255
           level_img = font.render("level: {:02}".format(level))
           # decrease paddle size, add lives on certain levels
           if level == 4:
             paddle_index=1
-            lives+=1
           elif level == 6:
             lives+=1
           # lives image
