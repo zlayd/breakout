@@ -17,9 +17,8 @@ If not, see <https://www.gnu.org/licenses/>.
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT']="bluh." # disable pygame's welcome message.
 import pygame
-from enum import IntEnum
 
-class PSF_Enum(IntEnum):
+class PSF_Enum():
   OKAY = 0
   NO_FONT = 1
   OPEN_FILE = 2
@@ -38,7 +37,7 @@ class PSF:
     self.warn = warn # whether or not to print error messages
     self.alter_scale = True # whether or not to alter scale when loading a new font
 
-  def loadFont(self, filename : str) -> PSF_Enum:
+  def loadFont(self, filename : str) -> int:
     f = 0
     try:
       f = open(filename, "rb")
@@ -82,7 +81,7 @@ class PSF:
     f.close()
     return PSF_Enum.OKAY
 
-  def setScale(self, scale : int) -> PSF_Enum:
+  def setScale(self, scale : int) -> int:
     if scale < 1:
       if self.warn:
         print("Error: " + str(scale) + " is not a valid scaled height.")
@@ -110,7 +109,7 @@ class PSF:
 
     return self.data[index]
 
-  def saveFont(self, filename : str) -> PSF_Enum:
+  def saveFont(self, filename : str) -> int:
     if self.height < 1:
       if self.warn:
         print("Error: No font exists to be saved!")
@@ -132,7 +131,7 @@ class PSF:
     f.close()
     return PSF_Enum.OKAY
 
-  def setGlyph(self, index : int, glyph : bytes) -> PSF_Enum:
+  def setGlyph(self, index : int, glyph : bytes) -> int:
     if len(glyph) != self.height:
       if self.warn:
         print("Error: Invalid glyph height!")
@@ -144,7 +143,7 @@ class PSF:
     self.data[index] = glyph
     return PSF_Enum.OKAY
 
-  def newFont(self, height : int) -> PSF_Enum:
+  def newFont(self, height : int) -> int:
     if height < 1 or height > 255:
       if self.warn:
         print("Error: Invalid glyph height.")
@@ -201,3 +200,5 @@ class PSF:
       image = pygame.transform.scale(image, (int(len(text)*8*self.scale/self.height), self.scale))
 
     return image
+
+print(PSF().setScale(10))
