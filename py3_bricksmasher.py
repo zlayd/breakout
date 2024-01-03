@@ -27,8 +27,9 @@ def set_color(surf : pygame.Surface, col : pygame.Color):
   i = 0
   while i+3 < buf.length:
     for j in range(3):
-      raw[i+j] = int(raw[i]*col_float[j])
-    i+=4
+      raw[i] = int(raw[i]*col_float[j])
+      i+=1
+    i+=1
   buf.write(bytes(raw))
 
 def rand_color(surf : pygame.Surface):
