@@ -290,6 +290,9 @@ def main():
         lives-=1
         if lives == -1:
           # game over ==> reset variables
+          # reset offset
+          row_offset=0
+          row_offset_max=0
           # change level to 1
           level=1
           level_img = font.render("level: 01")
@@ -371,7 +374,7 @@ def main():
                     ask_replay=False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                   ask_replay=False
-            rows=2
+            rows=1
             lives+=3
             level=1
             win_old_surf = pygame.display.get_surface().copy()
