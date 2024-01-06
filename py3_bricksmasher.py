@@ -20,23 +20,31 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT']="bluh." # disable pygame's welcome mess
 import pygame
 from psf import *
 
+# add a color effect to a surface
 def set_color(surf : pygame.Surface, col : pygame.Color):
+  # conver from 0-255 to 0.0-1.0
   col_float = (col.b/255.0, col.g/255.0, col.r/255.0)
+  # get image data
   buf = surf.get_buffer()
   raw = bytearray(buf.raw)
   i = 0
+  # for all of the pixels in the image
   while i+3 < buf.length:
+    # change each of the red, green and blue elements based on the color effect
     for j in range(3):
       raw[i] = int(raw[i]*col_float[j])
       i+=1
     i+=1
   buf.write(bytes(raw))
 
+# generate a list of randomly colored images from one image
 def rand_color(surf : pygame.Surface):
   surfs = []
   for i in range(4):
+    # generate random color
     col = pygame.Color(255, 255, 255)
     col.hsla = (random.randrange(180,360), 100, 80, 100)
+    # add color-adjusted image to list
     surfs.append(surf.copy())
     set_color(surfs[i], col)
   return surfs
@@ -379,6 +387,7 @@ def main():
             level=1
             win_old_surf = pygame.display.get_surface().copy()
             msg_type=2 # doesn't actually show a message, but makes it so that there's a fade
+            paddle_index=0
           else:
             msg_type=0 # you won a level message
           msg_time=255
